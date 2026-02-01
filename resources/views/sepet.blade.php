@@ -119,8 +119,8 @@
         <div class="text-6xl text-gray-300 mb-6">
             <i class="fas fa-shopping-cart"></i>
         </div>
-        <h3 class="text-2xl font-bold text-gray-600 mb-4">Sebetiniz Boş</h3>
-        <p class="text-gray-500 mb-8">Sebetinize No Aded.</p>
+        <h3 class="text-2xl font-bold text-gray-600 mb-4">Sebet Boş</h3>
+        <p class="text-gray-500 mb-8">Sebet No Orders.</p>
         <a href="/urunler" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg text-lg font-bold">
             <i class="fas fa-shopping-bag mr-2"></i>Start Shopping
         </a>
