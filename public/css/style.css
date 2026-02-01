@@ -1,0 +1,146 @@
+.banner-card {
+    position: relative;
+}
+
+.banner-text {
+    position: absolute;
+    top: 15%;
+    left: 55%;
+}
+
+.banner-text-2 {
+    position: absolute;
+    top: 15%;
+    right: 50%;
+}
+
+.banner-text-3 {
+    position: absolute;
+    top: 27%;
+    left: 55%;
+}
+
+.banner-sign {
+    position: absolute;
+    top: -20%;
+    right: 66%;
+    font-size: 200px;
+    opacity: 20%;
+    font-family: cursive;
+}
+
+.banner-photo {
+    position: absolute;
+    top: 10%;
+    right: 50%;
+}
+
+.banner-photo-2 {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+}
+
+.banner-photo-3 {
+    position: absolute;
+    top: -15%;
+    right: 50%;
+}
+
+.banner-photo-4 {
+    position: absolute;
+    top: 27%;
+    right: 50%;
+}
+
+.logo {
+    position: absolute;
+    top: 2%;
+    left: 3%;
+}
+
+.bg-image {
+    background-image: url(../img/hero-bg-light.webp);
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+.bg-shadow {
+    background-color: rgba(0, 0, 0, .5);
+}
+.mx-xl-7 {
+    margin-left: 30px;
+    margin-right: 90px;
+}
+a.hover-1 {
+    position: relative;
+    color: black!important;
+}
+
+a.hover-1:hover {
+    color:  #388DA8!important;
+}
+.mx-xl-8 {
+    margin-left: 8px;
+    margin-right: 40px;
+}
+.mx-xl-9 {
+    margin-left: 0px;
+    margin-right: 40px;
+}
+.px-6 {
+    padding-left: 100%;
+    padding-right: 100%;
+}
+.pt-xl-6 {
+    padding-top: 35px;
+}
+.mx-xl-10 {
+    margin-right: 50px;
+    margin-left: 25px;
+}
+.mx-xl-11 {
+    margin-right: 20px;
+    margin-left: 25px;
+}
+.satyn-al:hover {
+    background-color: #0E639C;
+    transform: scale(1.05);
+  }
+  .satyn-al {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #ffffff 0%, #000000 100%);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    margin-top: 10px;
+    transition: 0.3s;
+  }
+.satyn-al1:hover {
+    background-color: white;
+    transform: scale(1.05);
+  }
+  .satyn-al1 {
+    display: inline-block;
+    padding: 20px 50px;
+    background-color: white;
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    margin-top: 10px;
+    transition: 0.7s;
+  }
+  .gr {
+      width: 300px;
+      height: 200px;
+      background: linear-gradient(to right, #727236, #22A6F2);
+  }

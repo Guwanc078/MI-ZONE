@@ -1,0 +1,205 @@
+.back {
+    background-image: none;
+    background-image: url("suzuki_car-website-UI.png");
+}
+.bg-image {
+    background-image: url(bg.jpg);
+}
+
+.hero {
+  background-color: #0a0e14; /* Темный фон */
+  background-image: radial-gradient(circle at 80% 50%, #1c232d, #0a0e14); /* Имитация свечения */
+  height: 100vh;
+  color: white;
+  position: relative;
+  overflow: hidden; /* Чтобы машина не создавала прокрутку */
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 80%;
+}
+
+.content {
+  flex: 1;
+  z-index: 2; /* Текст будет выше фоновых элементов */
+}
+
+.content h1 {
+  font-size: 4rem;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.car-image {
+  flex: 1;
+  position: relative;
+  background-color: #191F28;
+}
+
+.car-image img {
+  width: 120%; /* Увеличиваем масштаб, чтобы машина казалась большой */
+  position: absolute;
+  right: -100px; /* Сдвигаем вправо, как на макете */
+  bottom: -50px; /* Прижимаем к низу */
+  z-index: 1;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.categories {
+  display: flex; /* Выстраиваем в ряд */
+  gap: 20px; /* Отступ между карточками */
+  justify-content: center; /* Центрируем весь блок */
+  padding: 40px;
+  background-color: #fff;
+}
+
+.category-card {
+  width: 150px; /* Ширина карточки */
+  height: 120px; /* Высота карточки */
+  border: 1px solid #e0e0e0; /* Светлая рамка */
+  border-radius: 10px; /* Скругленные углы */
+  display: flex;
+  flex-direction: column; /* Иконка над текстом */
+  align-items: center; /* Центровка по горизонтали */
+  justify-content: center; /* Центровка по вертикали */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Плавный эффект при наведении */
+}
+
+/* Эффект при наведении курсора */
+.category-card:hover {
+  border-color: #000; /* Рамка темнеет */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Легкая тень */
+}
+
+.category-card img {
+  width: 80px; /* Размер иконки */
+  height: auto;
+  margin-bottom: 10px; /* Расстояние до текста */
+}
+
+.category-card span {
+  font-family: sans-serif;
+  color: #777; /* Серый цвет текста */
+  font-size: 14px;
+  font-weight: 500;
+}
+.top-categories {
+  text-align: center;
+  padding: 50px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Стили заголовка и меню */
+h2 {
+  font-size: 2.5rem;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.filter-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.filter-menu li {
+  color: #666;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.filter-menu li.active {
+  color: #1a2a6c;
+  border-bottom: 2px solid #1a2a6c;
+}
+
+/* Сетка (Grid) */
+.category-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Главная карточка */
+.main-card {
+  background: #111; /* Темный фон */
+  border-radius: 15px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.main-card .card-info {
+  text-align: left;
+  z-index: 2;
+  color: white;
+}
+
+.main-card img {
+  position: absolute;
+  right: 20px;
+  height: 90%;
+  object-fit: contain;
+}
+
+/* Нижняя сетка с маленькими карточками */
+.sub-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+  gap: 20px;
+}
+
+.small-card {
+  background: #f5f5f5;
+  border-radius: 22px;
+  overflow: hidden;
+  transition: transform 0.5s;
+}
+
+.small-card:hover {
+  transform: translateY(-5px);
+}
+
+.small-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.bottom-bar {
+  background: #232a34; /* Темно-синий/серый фон */
+  color: white;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.price {
+  font-weight: bold;
+}
