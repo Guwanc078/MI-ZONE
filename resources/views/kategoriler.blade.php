@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Categories - Mi Zone</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
+@extends('layouts.app')
 <body class="bg-gray-100">
 <nav class="bg-white shadow-lg">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">

@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Sepet - Mi Zone</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
+@extends('layouts.app')
 <body class="bg-gray-100">
 <nav class="bg-white shadow-lg">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -94,7 +90,7 @@
         <div class="p-6 bg-gray-50 border-t">
             <div class="flex justify-between items-center">
                 <div>
-                    <h3 class="text-xl font-bold">Total: <span class="text-red-600">{{ number_format($toplam, 0, '', '.') }} TMT</span></h3>
+                    <h3 class="text-xl font-bold">Total: <span class="text-red-600">{{ number_format($total, 0, '', '.') }} TMT</span></h3>
                     <p class="text-gray-600 text-sm">{{ count($sepetUrunleri) }} ürün</p>
                 </div>
                 <div class="flex space-x-4">

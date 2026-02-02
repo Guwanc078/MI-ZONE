@@ -1,43 +1,25 @@
 <!DOCTYPE html>
 <html lang="tr">
+<head>
 @extends('layouts.app')
     <style>
         body{background:#f8f9fa}
         .card{border:none;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.1)}
-        .card-header{background:linear-gradient(45deg,#667eea,#764ba2);color:white}
+        .card-header{background:linear-gradient(45deg,#28a745,#20c997);color:white}
         .form-control,.form-select{border-radius:10px;padding:12px;border:2px solid #e0e6ed}
-        .form-control:focus,.form-select:focus{border-color:#667eea;box-shadow:0 0 0 3px rgba(102,126,234,0.2)}
-        .btn-primary{background:linear-gradient(45deg,#667eea,#764ba2);border:none;padding:12px 30px;border-radius:10px}
+        .form-control:focus,.form-select:focus{border-color:#28a745;box-shadow:0 0 0 3px rgba(40,167,69,0.2)}
+        .btn-primary{background:linear-gradient(45deg,#28a745,#20c997);border:none;padding:12px 30px;border-radius:10px}
         .btn-secondary{background:#6c757d;border:none;padding:12px 30px;border-radius:10px}
-        .image-preview{width:100%;height:200px;border-radius:10px;border:2px dashed #ddd;background:#f8f9fa;overflow:hidden}
+        .image-preview{width:100%;height:200px;border-radius:10px;border:2px solid #ddd;background:#f8f9fa;overflow:hidden}
         .image-preview img{max-width:100%;max-height:100%;object-fit:contain}
-        .category-badge{display:inline-flex;align-items:center;padding:8px 15px;margin:5px;border-radius:25px;background:#e9ecef;cursor:pointer}
-        .category-badge:hover{background:#dee2e6}
-        .category-badge.active{background:#667eea;color:white}
     </style>
 </head>
 <body>
-    <nav class="bg-white shadow-lg">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <a href="/" class="text-2xl font-bold text-red-600">
-                    <i class="fas fa-bolt"></i> Mi Zone
-                </a>
-                <div class="flex items-center space-x-6">
-                    <a href="/urun-ekle" class="text-red-600 font-bold">Add Products</a>
-                    <a href="/" class="text-gray-700 hover:text-red-600">Home Page</a>
-                    <a href="/urunler" class="text-gray-700 hover:text-red-600">Products</a>
-                    <a href="/sepet" class="text-gray-700 hover:text-red-600">
-                        <i class="fas fa-shopping-cart"></i> Sebet
-                    </a>
-                    <a href="/admin" class="text-gray-700 hover:text-red-600">
-                        <i class="fas fa-user-shield"></i> Admins
-                    </a>
-                
-                </div>
-            </div>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/"><i class="fas fa-mobile-alt me-2"></i>MiZone</a>
+            <a href="/logout" class="btn btn-outline-light"><i class="fas fa-sign-out-alt"></i></a>
         </div>
-    </nav>
     </nav>
 
     <div class="container mt-4">
@@ -45,7 +27,7 @@
             <div class="col-lg-10">
                 <div class="card">
                     <div class="card-header text-center">
-                        <h3 class="mb-0"><i class="fas fa-plus-circle me-2"></i>New Add Products</h3>
+                        <h3 class="mb-0"><i class="fas fa-edit me-2"></i>Update Products</h3>
                     </div>
                     <div class="card-body p-4">
                         @if(session('success'))
@@ -62,20 +44,20 @@
                         </div>
                         @endif
 
-                        <form action="/urun-ekle" method="POST">
+                        <form action="/urun-duzenle/{{ $urun->id }}" method="POST">
                             @csrf
                             
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Product Name</label>
                                     <input type="text" class="form-control" name="name" required 
-                                           placeholder="iPhone 14 Pro Max" value="{{ old('name') }}">
+                                           value="{{ old('name', $urun->name) }}">
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-label">Models</label>
+                                    <label class="form-label">Models:</label>
                                     <input type="text" class="form-control" name="model" required 
-                                           placeholder="A2894" value="{{ old('model') }}">
+                                           value="{{ old('model', $urun->model) }}">
                                 </div>
                             </div>
 
@@ -83,9 +65,10 @@
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Categories</label>
                                     <select class="form-select" name="category_id" required>
-                                        <option value="">Categori Seçin</option>
+                                        <option value="">Catrgori sec</option>
                                         @foreach($kategoriler as $kategori)
-                                        <option value="{{ $kategori->id }}" {{ old('category_id') == $kategori->id ? 'selected' : '' }}>
+                                        <option value="{{ $kategori->id }}" 
+                                                {{ (old('category_id', $urun->category_id) == $kategori->id) ? 'selected' : '' }}>
                                             {{ $kategori->name }}
                                         </option>
                                         @endforeach
@@ -95,7 +78,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Marka</label>
                                     <input type="text" class="form-control" name="brand" required 
-                                           placeholder="Apple" value="{{ old('brand') }}">
+                                           value="{{ old('brand', $urun->brand) }}">
                                 </div>
                             </div>
 
@@ -103,40 +86,37 @@
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Price</label>
                                     <input type="number" class="form-control" name="price" required 
-                                           step="0.01" min="0" placeholder="0.00" value="{{ old('price') }}">
+                                           step="0.01" min="0" value="{{ old('price', $urun->price) }}">
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-label">Stocks</label>
+                                    <label class="form-label">Stock</label>
                                     <input type="number" class="form-control" name="stock" required 
-                                           min="0" placeholder="0" value="{{ old('stock') }}">
+                                           min="0" value="{{ old('stock', $urun->stock) }}">
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Photo URL</label>
                                 <input type="url" class="form-control" id="imageUrl" name="image" required 
-                                       placeholder="https://example.com/image.jpg" value="{{ old('image') }}"
+                                       value="{{ old('image', $urun->image) }}"
                                        onchange="updateImagePreview()">
                                 <div id="imagePreview" class="image-preview mt-2">
-                                    <div class="text-center text-muted h-100 d-flex flex-column justify-content-center">
-                                        <i class="fas fa-image fa-3x mb-3"></i>
-                                        <p>Photo</p>
-                                    </div>
+                                    <img src="{{ $urun->image }}" alt="Photo IMG">
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">BIO</label>
-                                <textarea class="form-control" name="description" rows="3">{{ old('description') }}</textarea>
+                                <textarea class="form-control" name="description" rows="3">{{ old('description', $urun->description) }}</textarea>
                             </div>
 
                             <div class="d-flex justify-content-end gap-2">
                                 <a href="/urunler" class="btn btn-secondary">
-                                    <i class="fas fa-arrow-left me-2"></i>Cancel
+                                    <i class="fas fa-times me-2"></i>Cancel
                                 </a>
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fas fa-plus-circle me-2"></i>Add Products
+                                    <i class="fas fa-save me-2"></i>Save
                                 </button>
                             </div>
                         </form>
@@ -145,7 +125,8 @@
             </div>
         </div>
     </div>
-<script>
+
+    <script>
         function updateImagePreview() {
             const url = document.getElementById('imageUrl').value;
             const preview = document.getElementById('imagePreview');

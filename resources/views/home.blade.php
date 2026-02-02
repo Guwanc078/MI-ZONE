@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Mi Zone</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
+@extends('layouts.app')
 <body class="bg-gray-50">
     <nav class="bg-white shadow-lg">
         <div class="container mx-auto px-4">
@@ -15,6 +9,7 @@
                 <div class="flex items-center space-x-6">
                     <a href="/" class="text-red-600 font-bold">Home Page</a>
                     <a href="/urunler" class="text-gray-700 hover:text-red-600">Products</a>
+                    <a href="/urun-ekle" class="text-gray-700 hover:text-red-600">Add Products</a>
                     <a href="/sepet" class="text-gray-700 hover:text-red-600">
                         <i class="fas fa-shopping-cart"></i> Sebet
                     </a>
@@ -67,13 +62,13 @@
                     <div class="text-3xl text-yellow-600 mb-3">
                         <i class="fas fa-box"></i>
                     </div>
-                    <h3 class="font-bold">-</h3>
+                    <h3 class="font-bold">Acsesories</h3>
                 </a>
             </div>
         </div>
 
         <div class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 text-center">Sponsored Marka</h2>
+            <h2 class="text-2xl font-bold mb-6 text-center">Sponsor</h2>
             <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
                 <div class="bg-white p-6 rounded-xl shadow text-center">
                     <div class="text-3xl text-red-600 mb-3">
@@ -118,7 +113,7 @@
                 (object)[
                     'id' => 1,
                     'name' => 'Xiaomi 14 Pro',
-                    'model' => '16GB/512GB',
+                    'model' => '512GB',
                     'price' => '34000',
                     'stock' => 5,
                     'brand' => (object)['name' => 'Xiaomi']
@@ -126,7 +121,7 @@
                 (object)[
                     'id' => 2,
                     'name' => 'Redmi Note 13',
-                    'model' => '8GB/256GB',
+                    'model' => '128GB',
                     'price' => '12000',
                     'stock' => 25,
                     'brand' => (object)['name' => 'Redmi']
@@ -134,7 +129,7 @@
                 (object)[
                     'id' => 3,
                     'name' => 'POCO F5',
-                    'model' => '12GB/256GB',
+                    'model' => '256GB',
                     'price' => '15000',
                     'stock' => 15,
                     'brand' => (object)['name' => 'POCO']
@@ -142,14 +137,13 @@
                 (object)[
                     'id' => 4,
                     'name' => 'Mi Band 8',
-                    'model' => 'Aktiviteli',
+                    'model' => '-',
                     'price' => '20000',
                     'stock' => 50,
                     'brand' => (object)['name' => 'Xiaomi']
                 ],
             ];
             
-            // Eğer gerçek ürünler geliyorsa onları kullan, yoksa demoyu kullan
             $featuredProducts = isset($featuredProducts) && count($featuredProducts) > 0 ? $featuredProducts : $demoProducts;
         @endphp
 
