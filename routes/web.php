@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Category;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
+// Public routes
 Route::get('/', function () {
     $urunler = Product::orderBy('created_at', 'desc')->take(8)->get();
     return view('home', ['urunler' => $urunler]);
@@ -119,7 +122,6 @@ Route::get('/urun-duzenle/{id}', function ($id) {
     $kategoriler = Category::all();
     return view('urun-duzenle', ['urun' => $urun, 'kategoriler' => $kategoriler]);
 });
-
 Route::post('/urun-duzenle/{id}', function ($id, Request $request) {
     if (!Auth::check()) return redirect('/login');
     
@@ -171,20 +173,40 @@ Route::get('/category/{slug}', function ($slug) {
     ]);
 });
 
-Route::get('/login', function () {
+// Guest routes (Login)
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
+});
+
+// Protected routes (Auth required)
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    
+    // Admin routes
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::get('/', function () {
+            return view('admin.dashboard');
+        })->name('dashboard');
+        
+        // User management - only admins
+        Route::middleware('admin')->group(function () {
+            Route::resource('users', UserController::class);
+        });
+    });
+});
+
+// Quick login route (for development)
+Route::get('/quick-login', function () {
     $user = User::firstOrCreate(
         ['email' => 'admin@mizone.com'],
-        ['name' => 'Admin', 'password' => 'Admin123']
+        ['name' => 'Admin', 'password' => bcrypt('Admin123'), 'role' => 'admin']
     );
     Auth::login($user);
     return redirect('/admin');
 });
 
-Route::get('/admin', function () {
-    if (!Auth::check()) return redirect('/login');
-    return view('admin.dashboard');
-});
-
+// Logout route
 Route::get('/logout', function () {
     Auth::logout();
     Session::forget('sepet');

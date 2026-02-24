@@ -83,7 +83,7 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-start mb-2">
                             @if($urun->category)
-                            <span class="category-badge">{{ $urun->category->name }}</span>
+                            <span class="category-badge">{{ $urun->category }}</span>
                             @endif
                             <span class="stock-badge {{ $urun->stock > 0 ? 'stock-in' : 'stock-out' }}">
                                 {{ $urun->stock > 0 ? 'Stokta: '.$urun->stock : '' }}

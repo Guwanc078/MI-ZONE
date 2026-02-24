@@ -70,12 +70,9 @@
 
     <div class="bg-white rounded-xl shadow-lg overflow-hidden">
         <div class="md:flex">
-            <!-- Sol Taraf - Resim -->
             <div class="md:w-1/3 p-8 flex items-center justify-center bg-gray-50">
                 <div class="{{ $urun['images'][0] }}"></div>
             </div>
-            
-            <!-- Sağ Taraf - Bilgiler -->
             <div class="md:w-2/3 p-8">
                 <div class="mb-6">
                     <div class="flex justify-between items-start">
@@ -97,13 +94,11 @@
                     </div>
                 </div>
                 
-                <!-- Ürün Açıklama -->
                 <div class="mb-8">
                     <h3 class="text-xl font-bold text-gray-800 mb-3">Ürün Açıklaması</h3>
                     <p class="text-gray-600">{{ $urun['description'] }}</p>
                 </div>
                 
-                <!-- Teknik Özellikler -->
                 <div class="mb-8">
                     <h3 class="text-xl font-bold text-gray-800 mb-3">Teknik Özellikler</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -116,7 +111,6 @@
                     </div>
                 </div>
                 
-                <!-- Sepete Ekleme -->
                 <div class="bg-gray-50 p-6 rounded-lg">
                     <form action="/sepet/ekle/{{ $urun['id'] }}" method="POST" class="space-y-4">
                         @csrf
