@@ -30,7 +30,7 @@
                         <i class="fas fa-shopping-cart"></i> Sebet
                     </a>
                     <a href="/admin" class="text-gray-700 hover:text-red-600">
-                        <i class="fas fa-user-shield"></i> Admins
+                        <i class="fas fa-user-shield"></i> Admin
                     </a>
                 </div>
             </div>
