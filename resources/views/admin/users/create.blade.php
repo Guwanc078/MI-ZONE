@@ -10,7 +10,7 @@
 
     <div class="container mx-auto px-6 py-8">
         <div class="bg-white rounded-xl shadow p-6 max-w-lg mx-auto">
-            <h2 class="text-xl font-bold text-gray-800 mb-6">Yeni Kullanıcı Ekle</h2>
+            <h2 class="text-xl font-bold text-gray-800 mb-6">Taze Ulanyjy Gos</h2>
 
             @if($errors->any())
                 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
@@ -25,7 +25,7 @@
             <form method="POST" action="{{ route('admin.users.store') }}">
                 @csrf
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2">İsim</label>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Name</label>
                     <input type="text" name="name" value="{{ old('name') }}" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-red-600" required>
                 </div>
 
@@ -35,24 +35,24 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2">Şifre</label>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
                     <input type="password" name="password" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-red-600" required>
                 </div>
 
                 <div class="mb-6">
-                    <label class="block text-gray-700 text-sm font-bold mb-2">Rol</label>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Role</label>
                     <select name="role" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-red-600" required>
-                        <option value="user">Kullanıcı</option>
-                        <option value="admin">Admin</option>
+                        <option value="user">Users</option>
+                        <option value="admin">Admins</option>
                     </select>
                 </div>
 
                 <div class="flex justify-end space-x-3">
                     <a href="{{ route('admin.users.index') }}" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition">
-                        İptal
+                        Cancel
                     </a>
                     <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition">
-                        Kullanıcı Ekle
+                        Users Add
                     </button>
                 </div>
             </form>

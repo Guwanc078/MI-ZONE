@@ -9,7 +9,6 @@ return new class extends Migration
 {
     public function up(): void
     {
-        // Foreign key kontrollerini geçici olarak kapat
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         
         Schema::dropIfExists('products');
@@ -27,7 +26,6 @@ return new class extends Migration
             $table->timestamps();
         });
         
-        // Foreign key kontrollerini tekrar aç
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 

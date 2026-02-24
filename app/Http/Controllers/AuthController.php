@@ -27,7 +27,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Email veya şifre hatalı.',
+            'email' => 'Email yada password yalnis.',
         ]);
     }
 

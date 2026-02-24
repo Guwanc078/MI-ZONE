@@ -69,10 +69,10 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         if ($user->id === Auth::id()) {
-            return redirect()->route('admin.users.index')->with('error', 'Kendi hesabınızı silemezsiniz!');
+            return redirect()->route('admin.users.index')->with('error', 'Oz Hasabynyzy  Pozup Bilmersiniz!');
         }
         
         $user->delete();
-        return redirect()->route('admin.users.index')->with('success', 'Kullanıcı silindi');
+        return redirect()->route('admin.users.index')->with('success', 'Users Deleted');
     }
 }

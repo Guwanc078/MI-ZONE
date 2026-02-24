@@ -10,10 +10,13 @@ class AdminMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->isAdmin()) {
+        if (!Auth::check()) {
+            return redirect('/login')->with('error', 'Loged!');
+        }
+        $user = Auth::user();
+        if ($user->email === 'admin@mizone.com') {
             return $next($request);
         }
-
-        return redirect()->route('admin.dashboard')->with('error', 'Yetkiniz yok!');
+        return redirect('/')->with('error', 'Eror!');
     }
 }

@@ -17,9 +17,9 @@
 
         <div class="bg-white rounded-xl shadow p-6">
             <div class="flex justify-between items-center mb-6">
-                <h2 class="text-xl font-bold text-gray-800">Kullanıcı Yönetimi</h2>
+                <h2 class="text-xl font-bold text-gray-800">Users</h2>
                 <a href="{{ route('admin.users.create') }}" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition">
-                    <i class="fas fa-plus mr-2"></i>Yeni Kullanıcı Ekle
+                    <i class="fas fa-plus mr-2"></i>New - Users Add
                 </a>
             </div>
 
@@ -28,11 +28,11 @@
                     <thead class="bg-gray-50">
                         <tr>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">İsim</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Rol</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Kayıt Tarihi</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">İşlemler</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Role</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Create_At</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Invoice</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -54,7 +54,7 @@
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 @if($user->id !== Auth::id())
-                                <form action="{{ route('admin.users.destroy', $user) }}" method="POST" class="inline" onsubmit="return confirm('Emin misiniz?')">
+                                <form action="{{ route('admin.users.destroy', $user) }}" method="POST" class="inline" onsubmit="return confirm('?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="text-red-600 hover:text-red-800">

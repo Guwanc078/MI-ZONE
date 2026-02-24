@@ -9,10 +9,9 @@
             </div>
             
             <div class="flex items-center space-x-6">
-                <!-- Kullanıcı Yönetimi Linki - Sadece Adminler Görür -->
                 @if(Auth::user()->isAdmin())
                 <a href="{{ route('admin.users.index') }}" class="text-gray-700 hover:text-red-600 transition">
-                    <i class="fas fa-users mr-1"></i> Kullanıcılar
+                    <i class="fas fa-users mr-1"></i> Admins/users
                 </a>
                 @endif
                 
@@ -26,7 +25,7 @@
                 </span>
                 
                 <a href="{{ route('logout') }}" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <i class="fas fa-sign-out-alt mr-2"></i>Çıkış
+                    <i class="fas fa-sign-out-alt mr-2"></i>Exit
                 </a>
                 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">

@@ -173,30 +173,23 @@ Route::get('/category/{slug}', function ($slug) {
     ]);
 });
 
-// Guest routes (Login)
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
 });
 
-// Protected routes (Auth required)
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     
-    // Admin routes
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', function () {
             return view('admin.dashboard');
         })->name('dashboard');
-        
-        // User management - only admins
         Route::middleware('admin')->group(function () {
             Route::resource('users', UserController::class);
         });
     });
 });
-
-// Quick login route (for development)
 Route::get('/quick-login', function () {
     $user = User::firstOrCreate(
         ['email' => 'admin@mizone.com'],
@@ -205,8 +198,6 @@ Route::get('/quick-login', function () {
     Auth::login($user);
     return redirect('/admin');
 });
-
-// Logout route
 Route::get('/logout', function () {
     Auth::logout();
     Session::forget('sepet');
