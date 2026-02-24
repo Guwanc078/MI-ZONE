@@ -15,4 +15,4 @@ class AdminController extends Controller
         
         return view('admin.dashboard', compact('totalProducts', 'totalOrders', 'recentOrders', 'lowStockProducts'));
     }
-}
+} //ADMIN
